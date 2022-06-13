@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{%static '/index.css'%}">
+</head>
+<body>
+
+<h1>Wikigames : le meilleur du jeu vidéo</h1>
+
+ <article>
+		<nav>
+            <ul>
+                <li class="menu-deroulant"> <a href="/ludo/"><strong>Accueil</strong></a>
+
+                </li>
+                <li class="menu-deroulant"> <a href="#">Catégories</a>
+                    <ul class="sous-menu">
+                        <li><a href="/ludo/ajoutcategorie"><strong> Ajouter une categorie</strong></a></li>
+                        <li><a href="/ludo/affichagecategorie"><strong>Liste des catégories</strong></a></li>
+                    </ul>
+                </li>
+                <li class="menu-deroulant"> <a href="#">Jeux</a>
+                    <ul class="sous-menu">
+                        <li><a href="/ludo/ajoutjeux"><strong> Ajouter un Jeux</strong></a></li>
+                        <li><a href="/ludo/affichagejeux"><strong> Jeux crée</strong></a></li>
+                    </ul>
+                </li>
+                <li class="menu-deroulant"> <a href="#"> Auteurs</a>
+                    <ul class="sous-menu">
+                        <li><a href="/ludo/ajoutauteurs"><strong> Ajouter un Auteur</strong></a></li>
+                        <li><a href="/ludo/affichageauteurs"><strong> Auteur crée</strong></a></li>
+                    </ul>
+                </li>
+                <li class="menu-deroulant"> <a href="#"> Joueurs</a>
+                    <ul class="sous-menu">
+                        <li><a href="/ludo/ajoutjoueurs"><strong> Ajouter un Joueur</strong></a></li>
+                        <li><a href="/ludo/affichagejoueurs"><strong>Joueurs crée</strong></a></li>
+                    </ul>
+                </li>
+                <li class="menu-deroulant"> <a href="#"> Commentaires</a>
+                    <ul class="sous-menu">
+                        <li><a href="/ludo/ajoutcommentaires"><strong> Ajouter un commentaire</strong></a></li>
+                        <li><a href="/ludo/affichagecommentaires"><strong>Commentaire crée</strong></a></li>
+                    </ul>
+                </li>
+            </ul>
+		</nav>
+    </article>
+
+{% block content %}
+
+{% endblock %}
+
+</body>
+</html>

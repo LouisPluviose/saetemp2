@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/ludo/"><strong>Accueil</strong></a>
+<a href="/ludo/ajoutcategorie"><strong> Ajouter une categorie</strong></a>
+<a href="/ludo/affichagecategorie"><strong> Catégorie crée</strong></a>
+<a href="/ludo/ajoutjeux"><strong> Ajouter un Jeux</strong></a>
+<a href="/ludo/affichagejeux"><strong> Jeux crée</strong></a>
+<a href="/ludo/ajoutauteurs"><strong> Ajouter un Auteur</strong></a>
+<a href="/ludo/affichageauteurs"><strong> Auteur crée</strong></a>
+<a href="/ludo/ajoutjoueurs"><strong> Ajouter un Joueur</strong></a>
+<a href="/ludo/affichagejoueurs"><strong>Joueurs crée</strong></a>
+<a href="/ludo/ajoutcommentaires"><strong> Ajouter un commentaire</strong></a>
+<a href="/ludo/affichagecommentaires"><strong>Commentaire crée</strong></a>
+
+<h2 > Liste des jeux crée :</h2>
+
+<ol>
+    {% for j in liste %}
+        <li> {{j}} <a href="/ludo/affichejeux/{{j.id}}/">détails</a> <a class="updatejeux" href="/ludo/updatejeux/{{j.id}}/">Modifier</a> <a class="del" href="/ludo/deletejeux/{{j.id}}/">Supprimer</a> <a href="/ludo/deletejeux/{{j.id}}/">Moyenne des notes pour chaque type de personne</a> <a href="/ludo/deletejeux/{{j.id}}/">Commentaire sur les jeux</a></li>
+    {% endfor %}
+</ol>
+</body>
+</html>

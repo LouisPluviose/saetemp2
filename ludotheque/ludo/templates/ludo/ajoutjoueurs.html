@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/ludo/"><strong>Accueil</strong></a>
+<a href="/ludo/ajoutcategorie"><strong> Ajouter une categorie</strong></a>
+<a href="/ludo/affichagecategorie"><strong> Catégorie crée</strong></a>
+<a href="/ludo/ajoutjeux"><strong> Ajouter un Jeux</strong></a>
+<a href="/ludo/affichagejeux"><strong> Jeux crée</strong></a>
+<a href="/ludo/ajoutauteurs"><strong> Ajouter un Auteur</strong></a>
+<a href="/ludo/affichageauteurs"><strong> Auteur crée</strong></a>
+<a href="/ludo/ajoutjoueurs"><strong> Ajouter un Joueur</strong></a>
+<a href="/ludo/affichagejoueurs"><strong>Joueurs crée</strong></a>
+<a href="/ludo/ajoutcommentaires"><strong> Ajouter un commentaire</strong></a>
+<a href="/ludo/affichagecommentaires"><strong>Commentaire crée</strong></a>
+
+<h1>Saisir les informations suivantes afin de créer un joueur :</h1>
+  {% if id != '' %}
+    <form method="post" action="/ludo/traitementjoueurs/">
+   {% else %}
+
+   {% endif %}
+  {% csrf_token %}
+  {{form.as_ul}}
+  <input type="submit" value="Ajouter"/>
+    </form>
+</body>
+</html>
