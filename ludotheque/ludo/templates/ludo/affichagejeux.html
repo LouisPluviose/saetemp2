@@ -17,9 +17,6 @@
     {% for j in liste %}
         <li> {{j}} <a href="/ludo/affichejeux/{{j.id}}/">détails</a> <a class="updatejeux" href="/ludo/updatejeux/{{j.id}}/">Modifier</a> <a class="del" href="/ludo/deletejeux/{{j.id}}/">Supprimer</a> <a href="/ludo/deletejeux/{{j.id}}/">Moyenne des notes pour chaque type de personne</a> <a href="/ludo/deletejeux/{{j.id}}/">Commentaire sur les jeux</a></li>
     {% endfor %}
-
-    {% for moy in moyenne %}
-        <p></p>
 </ol>
 
 

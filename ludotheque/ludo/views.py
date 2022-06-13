@@ -85,8 +85,7 @@ def affichagejeux(request):
 
 def affichejeux(request, id):
     jeux = models.Jeux.objects.get(pk=id)
-    moyenne = models.Commentaires.objects.aggregate(Avg('note_com'))
-    return render(request, 'ludo/affichejeux.html', {"jeux": jeux}, {"moyenne": moyenne})
+    return render(request, 'ludo/affichejeux.html', {"jeux": jeux})
 
 
 def updatejeux(request, id):
@@ -234,7 +233,8 @@ def traitementcommentaires(request):
 
 def affichagecommentaires(request):
     liste5 = list(models.Commentaires.objects.all())
-    return render(request, 'ludo/affichagecommentaires.html', {"liste": liste5})
+    moyenne = models.Commentaires.objects.aggregate(Avg('note_com'))
+    return render(request, 'ludo/affichagecommentaires.html', {"liste": liste5}, {"moyenne": moyenne})
 
 
 def affichecommentaires(request, id):
