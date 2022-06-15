@@ -233,8 +233,7 @@ def traitementcommentaires(request):
 
 def affichagecommentaires(request):
     liste5 = list(models.Commentaires.objects.all())
-    moyenne = models.Commentaires.objects.aggregate(Avg('note_com'))
-    return render(request, 'ludo/affichagecommentaires.html', {"liste": liste5}, {"moyenne": moyenne})
+    return render(request, 'ludo/affichagecommentaires.html', {"liste": liste5})
 
 
 def affichecommentaires(request, id):

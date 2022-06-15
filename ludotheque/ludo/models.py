@@ -16,8 +16,8 @@ class Jeux(models.Model):
     annee_jeux = models.IntegerField(blank=False)
     image_jeux = models.ImageField(upload_to='images', null = True, blank = True)
     editeur_jeux = models.CharField(max_length=100)
-    auteur_jeux = models.CharField(max_length=100)
-    categorie_jeux = models.ForeignKey("Categorie", on_delete=models.CASCADE)
+    auteur_jeux = models.ForeignKey("Auteurs", on_delete=models.CASCADE, related_name="auteur_jeux")
+    categorie_jeux = models.ForeignKey("Categorie", on_delete=models.CASCADE, related_name="categorie_jeux")
 
     def __str__(self):
         chaine2 = f"{self.titre_jeux}"
