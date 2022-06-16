@@ -1,5 +1,17 @@
+body {
+    font-family: 'Anek Malayalam', sans-serif;
+}
+
 h1 {
     text-align: center;
+}
+
+p {
+	margin-left: 1.5%;
+}
+
+ul {
+	margin-left: 2.5%;
 }
 
 /* Navbar */

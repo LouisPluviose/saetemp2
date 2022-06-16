@@ -1,15 +1,15 @@
 from django.db import models
 
 class Categorie(models.Model):
-    nom_cat = models.CharField(max_length=100)
-    descriptif_cat = models.TextField(null=True, blank=True)
+    nom_categorie = models.CharField(max_length=100)
+    descriptif_categorie = models.TextField(null=True, blank=True)
 
     def __str__(self):
-        chaine = f"{self.nom_cat}"
+        chaine = f"{self.nom_categorie}"
         return chaine
 
     def dico_cat(self):
-        return {"nom_cat":self.nom_cat, "descriptif_cat":self.descriptif_cat}
+        return {"nom_categorie":self.nom_categorie, "descriptif_categorie":self.descriptif_categorie}
 
 class Jeux(models.Model):
     titre_jeux = models.CharField(max_length=100)
@@ -28,45 +28,45 @@ class Jeux(models.Model):
 
 
 class Auteurs(models.Model):
-    nom_aut = models.CharField(max_length=100)
-    prenom_aut = models.CharField(max_length=100)
-    age_aut = models.IntegerField(blank=False)
-    photo_aut = models.ImageField(upload_to='images', null = True, blank = True)
+    nom_auteur = models.CharField(max_length=100)
+    prenom_auteur = models.CharField(max_length=100)
+    age_auteur = models.IntegerField(blank=False)
+    photo_auteur= models.ImageField(upload_to='images', null = True, blank = True)
 
     def __str__(self):
-        chaine3 = f"{self.nom_aut} {self.prenom_aut}"
+        chaine3 = f"{self.nom_auteur} {self.prenom_auteur}"
         return chaine3
 
     def dico_aut(self):
-        return {"nom_aut": self.nom_aut, "prenom_aut": self.prenom_aut, "age_aut": self.age_aut, "photo_aut": self.photo_aut}
+        return {"nom_auteur": self.nom_auteur, "prenom_auteur": self.prenom_auteur, "age_auteur": self.age_auteur, "photo_auteur": self.photo_auteur}
 
 class Joueurs(models.Model):
-    nom_j = models.CharField(max_length=100)
-    prenom_j = models.CharField(max_length=100)
-    mail_j = models.EmailField(blank=True, null=True)
-    mdp_j = models.CharField(max_length=100, blank=True, null=True)
+    nom_joueur = models.CharField(max_length=100)
+    prenom_joueur = models.CharField(max_length=100)
+    mail_joueur = models.EmailField(blank=True, null=True)
+    mdp_joueur = models.CharField(max_length=100, blank=True, null=True)
     PROFESSIONNEL = 'PROFESSIONNEL'
     PARTICULIER = 'PARTICULIER'
     choix = [(PROFESSIONNEL, 'PRO'), (PARTICULIER, 'PARTICULIER')]
-    type_j = models.CharField(blank=True, choices=choix, max_length=100)
+    type_joueur = models.CharField(blank=True, choices=choix, max_length=100)
 
     def __str__(self):
-        chaine4 = f"{self.nom_j}"
+        chaine4 = f"{self.nom_joueur}"
         return chaine4
 
     def dico_jou(self):
-        return {"nom_j": self.nom_j, "prenom_j": self.prenom_j, "mail_j": self.mail_j, "mdp_j": self.mdp_j, "type_j": self.type_j}
+        return {"nom_joueur": self.nom_joueur, "prenom_joueur": self.prenom_joueur, "mail_joueur": self.mail_joueur, "mdp_joueur": self.mdp_joueur, "type_joueur": self.type_joueur}
 
 class Commentaires(models.Model):
-    jeux_com = models.ForeignKey("jeux", on_delete=models.CASCADE)
-    joueurs_com = models.ForeignKey("joueurs", on_delete=models.CASCADE)
-    note_com = models.IntegerField(blank=False)
+    jeux_commentaire = models.ForeignKey("jeux", on_delete=models.CASCADE)
+    joueur_commentaire = models.ForeignKey("joueurs", on_delete=models.CASCADE)
+    note_commentaire = models.IntegerField(blank=False)
     commentaire_jeu = models.TextField(null=True, blank=True)
-    date_com = models.DateField(blank=True, null=True)
+    date_commentaire = models.DateField(blank=True, null=True)
 
     def __str__(self):
         chaine5 = f"{self.commentaire_jeu}"
         return chaine5
 
     def dico_com(self):
-        return {"jeux_com": self.jeux_com, "joueurs_com": self.joueurs_com, "note_com": self.note_com, "commentaire_jeux": self.commentaire_jeu, "date_com": self.date_com}
+        return {"jeux_commentaire": self.jeux_commentaire, "joueurs_commentaire": self.joueur_commentaire, "note_commentaire": self.note_commentaire, "commentaire_jeux": self.commentaire_jeu, "date_commentaire": self.date_commentaire}
