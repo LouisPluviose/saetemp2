@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponseRedirect
-from .forms import CategorieForm, JeuxForm, AuteursForm, JoueursForm, CommentairesForm
+from .forms import *
 from . import models
 from django.db.models import Avg
 
@@ -233,29 +233,26 @@ def traitementcommentaires(request):
 
 def affichagecommentaires(request):
     liste5 = list(models.Commentaires.objects.all())
-    return render(request, 'ludo/affichagecommentaires.html', {"liste": liste5})
-
+    return render(request, 'ludo/affichagecommentaires.html',{"liste" : liste5})
 
 def affichecommentaires(request, id):
-    commentaires = models.Commentaires.objects.get(pk=id)
-    return render(request, 'ludo/affichecommentaires.html', {"commentaires": commentaires})
-
+    commentaires = models.Commentaires.objects.get(pk = id)
+    return render(request,'ludo/affichecommentaires.html',{"commentaires":commentaires})
 
 def updatecommentaires(request, id):
     commentaires = models.Commentaires.objects.get(pk=id)
-    form = JoueursForm(commentaires.dico_com())
-    return render(request, "ludo/updatecommentaires.html", {"form": form, "id": id})
-
+    form = CommentairesForm(commentaires.dico_com())
+    return render(request, "ludo/updatecommentaires.html", {"form":form, "id":id})
 
 def updatetraitementcommentaires(request, id):
     cform = CommentairesForm(request.POST)
     if cform.is_valid():
-        commentaires = cform.save(commit=False)
+        commentaires = cform.save(commit = False)
         commentaires.id = id
         commentaires.save()
         return HttpResponseRedirect('/ludo/affichagecommentaires')
     else:
-        return render(request, "ludo/ajoutcommentaires.html", {"form": cform, "id": id})
+        return render(request, "ludo/ajoutcommentaires.html", {"form": cform, "id":id})
 
 
 def deletecommentaires(request, id):
