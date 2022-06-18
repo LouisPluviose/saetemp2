@@ -62,7 +62,7 @@ def deletecategorie(request, id):
 
 def ajoutjeux(request):
     if request.method == "POST":
-        form = JeuxForm(request)
+        form = JeuxForm(request.POST, request.FILES)
         return render(request, "ludo/ajoutjeux.html", {"form": form})
     else:
         form = JeuxForm()
@@ -113,7 +113,7 @@ def deletejeux(request, id):
 
 def ajoutauteurs(request):
     if request.method == "POST":
-        form = AuteursForm(request)
+        form = AuteursForm(request.POST, request.FILES)
         return render(request, "ludo/ajoutauteurs.html", {"form": form})
     else:
         form = AuteursForm()
